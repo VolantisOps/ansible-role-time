@@ -1,0 +1,10 @@
+---
+- name: Set timezone
+  timezone:
+    name: "{{timezone}}"
+
+- name: Ensure ntp package is installed
+  pacman: name=ntp state=present
+
+- name: Ensure ntpd is running
+  service: "name=ntpd.service state=started enabled=yes"
